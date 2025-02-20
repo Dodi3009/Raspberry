@@ -1,0 +1,13 @@
+[Unit]
+Description=Avvio script Python con ambiente virtuale
+After=network.target
+
+[Service]
+ExecStart=/home/pi/raspberry/myenv/bin/python3 /home/pi/raspberry/prova_client.py
+WorkingDirectory=/home/pi/raspberry/myenv
+Restart=always
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

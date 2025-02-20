@@ -1,0 +1,19 @@
+[Unit]
+Description=Avvio script Python con Pyttsx3
+After=multi-user.target
+
+[Service]
+ExecStart=/home/pi/raspberry/myenv/bin/python3 /home/pi/raspberry/client_ollama.py
+WorkingDirectory=/home/pi/raspberry/myenv
+Restart=always
+User=pi
+Group=pi
+
+# Permessi per l'accesso all'audio
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PATH=/usr/bin:/bin:/usr/local/bin:/home/pi/Downloads/myenv/bin
+
+# Reindirizzare output a log per debug
+StandardOutput=journal
+StandardError=journal
